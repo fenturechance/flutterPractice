@@ -31,7 +31,13 @@ class _HomePageState extends State<HomePage> {
           ),
         )
       ),
-      body: Image.network('https://yhq.tw/wp-content/uploads/2018082418004496.png')
+      body: Column(
+        children: <Widget>[
+          Image.network('https://yhq.tw/wp-content/uploads/2018082418004496.png'),
+          Image.network('https://yhq.tw/wp-content/uploads/2018082418004496.png'),
+          Image.network('https://yhq.tw/wp-content/uploads/2018082418004496.png'),
+        ],
+      )
     );
   }
 }
