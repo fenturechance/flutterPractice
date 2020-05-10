@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
           ),
         )
       ),
-      // body: a
+      body: Image.network('https://yhq.tw/wp-content/uploads/2018082418004496.png')
     );
   }
 }
