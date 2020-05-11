@@ -39,8 +39,9 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
             margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(border: Border.all(width: 5, color: Colors.blue)),
-            child: Image.network('https://cdn.pixabay.com/photo/2020/04/22/09/59/tree-5077020_1280.jpg'),
+            width: 200,
+            height: 150,
+            decoration: BoxDecoration(image: DecorationImage(image: NetworkImage('https://cdn.pixabay.com/photo/2020/04/22/09/59/tree-5077020_1280.jpg'))),
           ),
           Container(
             padding: EdgeInsets.all(10),
