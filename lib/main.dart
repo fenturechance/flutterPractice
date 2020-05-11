@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+            padding: EdgeInsets.only(top: 10, bottom: 30, left: 10, right: 20),
             child: Image.network('https://cdn.pixabay.com/photo/2020/04/27/11/03/ranunkeln-5099319_1280.jpg')
           ),
           
