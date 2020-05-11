@@ -21,6 +21,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -39,8 +40,8 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
             margin: EdgeInsets.all(10),
-            width: 200,
-            height: 150,
+            width: size.width,
+            height: 230,
             decoration: BoxDecoration(image: DecorationImage(image: NetworkImage('https://cdn.pixabay.com/photo/2020/04/22/09/59/tree-5077020_1280.jpg'))),
           ),
           Container(
