@@ -38,17 +38,21 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(top: 10, bottom: 30, left: 10, right: 20),
             child: Image.network('https://cdn.pixabay.com/photo/2020/04/27/11/03/ranunkeln-5099319_1280.jpg')
           ),
-          Container(
-            margin: EdgeInsets.all(10),
-            width: size.width,
-            height: 230,
-            decoration: BoxDecoration(image: DecorationImage(image: NetworkImage('https://cdn.pixabay.com/photo/2020/04/22/09/59/tree-5077020_1280.jpg'))),
-          ),
-          Container(
+          Padding(
             padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(border: Border.all(width: 5, color: Colors.blue)),
-            child: Image.network('https://cdn.pixabay.com/photo/2020/05/06/12/01/compass-5137269_1280.jpg'),
-          )
+            child: AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Image.network(
+                'https://cdn.pixabay.com/photo/2020/05/06/12/01/compass-5137269_1280.jpg',
+                fit: BoxFit.cover
+              )
+            ),
+          ),
+          // Container(
+          //   padding: EdgeInsets.all(10),
+          //   decoration: BoxDecoration(border: Border.all(width: 5, color: Colors.blue)),
+          //   child: Image.network('https://cdn.pixabay.com/photo/2020/05/06/12/01/compass-5137269_1280.jpg'),
+          // )
         ],
       )
     );
