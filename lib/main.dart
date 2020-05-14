@@ -51,11 +51,21 @@ class _HomePageState extends State<HomePage> {
                   )
                 ),
                 child: Container(
+                  alignment: Alignment.bottomRight,
                   margin: EdgeInsets.all(5.0),
+                  padding: EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
                     border: Border.all(
                       width: 8.0,
                       color: Colors.white60
+                    )
+                  ),
+                  child: Text(
+                    'Container Demo',
+                    style: TextStyle(
+                      color: Colors.white60,
+                      fontWeight: FontWeight.w900,
+                      fontSize: 20.0
                     )
                   ),
                 ),
