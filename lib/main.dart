@@ -41,12 +41,26 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: EdgeInsets.all(10),
             child: AspectRatio(
-              aspectRatio: 16 / 9,
-              child: Image.network(
-                'https://cdn.pixabay.com/photo/2020/05/06/12/01/compass-5137269_1280.jpg',
-                fit: BoxFit.cover
+              aspectRatio: 1280 / 853,
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      'https://cdn.pixabay.com/photo/2020/05/06/12/01/compass-5137269_1280.jpg'
+                    )
+                  )
+                ),
+                child: Container(
+                  margin: EdgeInsets.all(5.0),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 8.0,
+                      color: Colors.white60
+                    )
+                  ),
+                ),
               )
-            ),
+            )
           ),
           // Container(
           //   padding: EdgeInsets.all(10),
