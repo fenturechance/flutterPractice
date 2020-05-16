@@ -1,5 +1,5 @@
 import 'dart:core';
-
+import 'package:flutter/material.dart';
 
 class MyClass {
   func1() {
@@ -11,6 +11,6 @@ class MyClass {
     print('def');
   }
   static func3() {
-    print('ghi');
+    return Color(0xffaa00);
   }
 }
