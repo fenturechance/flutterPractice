@@ -22,10 +22,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    // if you don't define, item in list will be dynamic
+    /// if you don't define, item in list will be dynamic -> three /// to write comment
     List<String> urls = [
-      'https://pixabay.com/get/53e1d04a4c5aa414f6da8c7dda79317d103edfed5a4c704c7d267dd5914ec45b_1280.jpg',
-      'https://pixabay.com/get/53e1d3404253ae14f6da8c7dda79317d103edfed5a4c704c7d267dd5914ec45b_1280.jpg'
+      'assets/images/forest.jpg',
+      'assets/images/raspberries.jpg'
     ];
     return Scaffold(
       appBar: AppBar(
@@ -54,7 +54,8 @@ class _HomePageState extends State<HomePage> {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: NetworkImage(url),
+              ///要換一個provider
+              image: AssetImage(url),
               fit: BoxFit.cover
             )
           ),
