@@ -8,4 +8,7 @@ class MyClass {
   _func1() {
     print('def');
   }
+  static func3() {
+    print('ghi');
+  }
 }
