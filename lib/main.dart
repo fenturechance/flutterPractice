@@ -22,6 +22,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    // if you don't define, item in list will be dynamic
+    List<String> urls = [
+      'https://pixabay.com/get/53e1d04a4c5aa414f6da8c7dda79317d103edfed5a4c704c7d267dd5914ec45b_1280.jpg',
+      'https://pixabay.com/get/53e1d3404253ae14f6da8c7dda79317d103edfed5a4c704c7d267dd5914ec45b_1280.jpg'
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -33,15 +38,15 @@ class _HomePageState extends State<HomePage> {
         )
       ),
       body: Column(
-        children: <Widget>[
-          buildImageView('https://pixabay.com/get/53e1d04a4c5aa414f6da8c7dda79317d103edfed5a4c704c7d267dd5914ec45b_1280.jpg'),
-          buildImageView('https://pixabay.com/get/53e1d3404253ae14f6da8c7dda79317d103edfed5a4c704c7d267dd5914ec45b_1280.jpg')
-        ],
+        // function without name called closure
+        children: List.generate(urls.length, (idx) {
+          return _buildImageView(urls[idx]);
+        }),
       )
     );
   }
   //也可以寫dynamic
-  Widget buildImageView(String url, { String title = 'Container Demo' }) {
+  Widget _buildImageView(String url, { String title = 'Container Demo' }) {
     return Padding(
       padding: EdgeInsets.all(10),
       child: AspectRatio(
