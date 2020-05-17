@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './page2.dart';
 
 void main() {
   runApp(MyApp());
@@ -43,7 +44,10 @@ class _HomePageState extends State<HomePage> {
           return GestureDetector(
             child: _buildImageView(urls[idx]),
             onTap: () {
-              print(urls[idx]);
+              NavigatorState nav = Navigator.of(context);
+              nav.push(MaterialPageRoute(
+                builder: (context) => Page2()
+              ));
             },
           );
         }),
