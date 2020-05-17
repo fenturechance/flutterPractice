@@ -40,7 +40,12 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         // function without name called closure
         children: List.generate(urls.length, (idx) {
-          return _buildImageView(urls[idx]);
+          return GestureDetector(
+            child: _buildImageView(urls[idx]),
+            onTap: () {
+              print(urls[idx]);
+            },
+          );
         }),
       )
     );
