@@ -48,7 +48,9 @@ class _HomePageState extends State<HomePage> {
               nav.push(MaterialPageRoute(
                 builder: (context) => Page2('My Page2')
                 // 等同 builder: (context) { return Page2(); }
-              ));
+              )).then((result) {
+                print(result);
+              });
             },
           );
         }),
