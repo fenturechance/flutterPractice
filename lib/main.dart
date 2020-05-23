@@ -46,7 +46,10 @@ class _HomePageState extends State<HomePage> {
             onTap: () {
               NavigatorState nav = Navigator.of(context);
               nav.push(MaterialPageRoute(
-                builder: (context) => Page2('My Page2')
+                builder: (context) => Page2(
+                  'My Page2',
+                  urls[idx]
+                )
                 // 等同 builder: (context) { return Page2(); }
               )).then((result) {
                 print(result);

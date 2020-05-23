@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class Page2 extends StatelessWidget {
   final String title;
-  Page2(this.title);
+  final String photoName;
+  Page2(this.title, this.photoName);
   // Page2(this.title) : assert(title != null, 'Title must has data');
   // 測試階段才用上面那行，為了要讓'Title must has data'顯示在螢幕上
   @override
@@ -15,6 +16,9 @@ class Page2 extends StatelessWidget {
             Navigator.of(context).pop('From page2');
           },
         ),
+      ),
+      body: Center(
+        child: Image.asset('$photoName')
       ),
     );
   }
