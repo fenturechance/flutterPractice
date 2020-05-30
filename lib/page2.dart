@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
+import './main.dart';
 
 class Page2 extends StatelessWidget {
   // final String title;
@@ -10,9 +11,10 @@ class Page2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Map args = ModalRoute.of(context).settings.arguments;
+    GlobalData g = GlobalData.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('${args['title']}'),
+        title: Text('${g.title}'),
         leading: BackButton(
           onPressed: () {
             Navigator.of(context).pop('From page2');
@@ -22,7 +24,7 @@ class Page2 extends StatelessWidget {
       body: PhotoView(
         maxScale: 2.0,
         minScale: 0.2,
-        imageProvider: AssetImage(args['photoName']),
+        imageProvider: AssetImage(g.url),
       ),
     );
   }

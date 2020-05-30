@@ -9,15 +9,17 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // home: HomePage()
-      initialRoute: '/',
-      routes: {
-        '/': (BuildContext context)  => HomePage(),
-        '/Page2': (BuildContext context)  => Page2(),
-        '/Page3': (BuildContext context)  => Page3(),
+    return GlobalData(
+      child: MaterialApp(
+        // home: HomePage()
+        initialRoute: '/',
+        routes: {
+          '/': (BuildContext context)  => HomePage(),
+          '/Page2': (BuildContext context)  => Page2(),
+          '/Page3': (BuildContext context)  => Page3(),
 
-      },
+        },
+      )
     );
   }
 }
@@ -53,13 +55,10 @@ class _HomePageState extends State<HomePage> {
             child: _buildImageView(urls[idx]),
             onTap: () {
               NavigatorState nav = Navigator.of(context);
-              nav.pushNamed(
-                '/Page2',
-                arguments: {
-                  'title': 'Page2',
-                  'photoName': urls[idx],
-                }
-              );
+              GlobalData g = GlobalData.of(context);
+              g.title = 'Photo Show';
+              g.url = urls[idx];
+              nav.pushNamed('/Page2');
               // nav.push(MaterialPageRoute(
               //   builder: (context) => Page2(
               //     'My Page2',
@@ -114,4 +113,33 @@ class _HomePageState extends State<HomePage> {
     );
     
   }
+}
+
+class GlobalData extends InheritedModel {
+  String title;
+  String url;
+
+  GlobalData({ @required Widget child }) : super(child: child);
+
+  static GlobalData of(BuildContext context, { String aspect }){
+    return InheritedModel.inheritFrom<GlobalData>(context, aspect: aspect);
+  }
+
+  @override
+  bool updateShouldNotify(InheritedWidget oldWidget) {
+    return true;
+  }
+
+  @override
+  //A collection of objects in which each object can occur only once.
+  bool updateShouldNotifyDependent(GlobalData oldWidget, Set dependencies) {
+    if(dependencies.contains('title') && oldWidget.title != title) {
+      return true;
+    }
+    if(dependencies.contains('url') && oldWidget.url != url) {
+      return true;
+    }
+    return false;
+  }
+
 }
