@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './page2.dart';
+import './page3.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,7 +10,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage()
+      // home: HomePage()
+      initialRoute: '/',
+      routes: {
+        '/': (BuildContext context)  => HomePage(),
+        '/Page2': (BuildContext context)  => Page2(),
+        '/Page3': (BuildContext context)  => Page3(),
+
+      },
     );
   }
 }
@@ -45,15 +53,22 @@ class _HomePageState extends State<HomePage> {
             child: _buildImageView(urls[idx]),
             onTap: () {
               NavigatorState nav = Navigator.of(context);
-              nav.push(MaterialPageRoute(
-                builder: (context) => Page2(
-                  'My Page2',
-                  urls[idx]
-                )
-                // 等同 builder: (context) { return Page2(); }
-              )).then((result) {
-                print(result);
-              });
+              nav.pushNamed(
+                '/Page2',
+                arguments: {
+                  'title': 'Page2',
+                  'photoName': urls[idx],
+                }
+              );
+              // nav.push(MaterialPageRoute(
+              //   builder: (context) => Page2(
+              //     'My Page2',
+              //     '${urls[idx]}'
+              //   )
+              //   // 等同 builder: (context) { return Page2(); }
+              // )).then((result) {
+              //   print(result);
+              // });
             },
           );
         }),
